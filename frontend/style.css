@@ -10,9 +10,9 @@
    repeatedly, we can use var(--primary-color).
 */
 :root {
-    --primary-color: #da1a8a;    /* Main orange used for buttons, links, etc. */
-    --primary-hover: #da1a8a;    /* Darker orange used when hovering */
-    --bg-color: #04b6b0;         /* Main page background */
+    --primary-color: #da1a8a;    /* Main pink used for buttons, links, etc. */
+    --primary-hover: #da1a8a;    /* Secondary pink used when hovering */
+    --bg-color: #04b6b0;         /* Main page teal background */
     --card-bg: #ffffff;          /* White background used for cards/sections */
     --text-main: #2c3e50;        /* Main dark text color */
     --text-muted: #7f8c8d;       /* Lighter gray text for secondary information */
@@ -141,11 +141,51 @@ main {
 /*
    Styles the message that tells the user whether the frontend
    is connected to the backend.
+
+   This element sits directly on the page's teal background (it's
+   inside <main>, which has no background of its own), so its
+   default state stays plain and unstyled — no box, no color.
 */
 #connection-status {
     text-align: center;
     margin: 15px 0;
     font-size: 0.9rem;
+}
+
+
+/*
+   app.js sets color:red and font-weight:bold directly on this
+   element (via JavaScript, not a CSS class) whenever the backend
+   can't be reached. Plain red text sitting straight on the teal
+   background is genuinely hard to read — not just a style
+   preference, the two colors don't give enough contrast against
+   each other.
+
+   Instead of just picking a different red, this turns the message
+   into a solid, high-contrast badge: white text on a solid red
+   pill. That reads clearly no matter what's behind it.
+
+   :not(:empty) means this styling only applies when there's
+   actual text inside the element. When app.js clears the message
+   back to an empty string, the element goes back to being fully
+   invisible with no leftover box.
+
+   !important is required here specifically because it's fighting
+   an INLINE style set by JavaScript (element.style.color = "red").
+   Inline styles normally beat regular CSS rules, so !important is
+   one of the few genuinely correct times to use it: overriding an
+   inline style without having to rewrite the JavaScript.
+*/
+#connection-status:not(:empty) {
+    display: block;
+    width: fit-content;
+    margin: 15px auto;
+    text-align: center;
+    color: var(--danger-color) !important;
+    background-color: #f5e7f3;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
 }
 
 
@@ -657,7 +697,10 @@ main {
    Shared styling for admin error messages.
 
    This class is used for things like incorrect passwords
-   and form validation errors.
+   and form validation errors. These sit inside .admin-section,
+   which has a white card background, so red text here already
+   has good contrast without needing the badge treatment used
+   for #connection-status above.
 */
 .admin-error {
     color: var(--danger-color);
