@@ -10,14 +10,14 @@
    repeatedly, we can use var(--primary-color).
 */
 :root {
-    --primary-color: #e67e22;    /* Main orange used for buttons, links, etc. */
-    --primary-hover: #d35400;    /* Darker orange used when hovering */
-    --bg-color: #f9f9f9;         /* Main page background */
+    --primary-color: #da1a8a;    /* Main orange used for buttons, links, etc. */
+    --primary-hover: #da1a8a;    /* Darker orange used when hovering */
+    --bg-color: #04b6b0;         /* Main page background */
     --card-bg: #ffffff;          /* White background used for cards/sections */
     --text-main: #2c3e50;        /* Main dark text color */
     --text-muted: #7f8c8d;       /* Lighter gray text for secondary information */
     --border-color: #e2e8f0;     /* Light gray used for borders */
-    --danger-color: #c0392b;     /* Red used for delete/error states */
+    --danger-color: #c51c1c;     /* Red used for delete/error states */
 }
 
 
@@ -377,7 +377,7 @@ main {
 .view-recipe-btn {
     display: block;
     text-align: center;
-    background-color: #f1f5f9;
+    background-color: #e6efef;
     color: var(--text-main);
     text-decoration: none;
     padding: 10px;
@@ -632,7 +632,7 @@ main {
    Styles the "Exit Editing Mode" button.
 */
 .exit-edit-btn {
-    background-color: #f1f5f9;
+    background-color: #e6efef;
     color: var(--text-main);
     border: none;
     padding: 8px 16px;

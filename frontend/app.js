@@ -1,5 +1,5 @@
 // ---------------------------------------------------------------
-// Personal Recipe Archive — frontend logic
+// Lamar's Digital Cookbook — frontend logic
 // Handles search/filter, the read-only detail view, and the
 // password-gated admin editing UI (add / edit / delete recipes).
 // ---------------------------------------------------------------
