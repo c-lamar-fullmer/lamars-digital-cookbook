@@ -4,8 +4,8 @@
 // password-gated admin editing UI (add / edit / delete recipes).
 // ---------------------------------------------------------------
 
-// Base URL for all requests to the Spring Boot backend.
-const API_ROOT = "http://localhost:8080/api";
+// Base URL for all requests to the render backend.
+const API_ROOT = "https://lamars-digital-cookbook.onrender.com/api";
 
 // Build specific API URLs from the base URL.
 // Using constants prevents us from having to repeatedly type the full URL.
