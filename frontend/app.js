@@ -301,7 +301,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Show a user-friendly error message.
                 statusIndicator.textContent =
-                    "Could not connect to the backend. Is it running on port 8080?";
+                    "All your delicious recipes are loading. This may take a minute, so please be pateint. You can close this screen while you're waiting.";
 
                 statusIndicator.style.color = "red";
                 statusIndicator.style.fontWeight = "bold";

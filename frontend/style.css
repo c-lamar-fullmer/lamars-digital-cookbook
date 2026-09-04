@@ -17,7 +17,7 @@
     --text-main: #2c3e50;        /* Main dark text color */
     --text-muted: #7f8c8d;       /* Lighter gray text for secondary information */
     --border-color: #e2e8f0;     /* Light gray used for borders */
-    --danger-color: #c51c1c;     /* Red used for delete/error states */
+    --danger-color: #a50a5c;     /* Red used for delete/error states */
 }
 
 
