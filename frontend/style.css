@@ -10,9 +10,9 @@
    repeatedly, we can use var(--primary-color).
 */
 :root {
-    --primary-color: #da1a8a;    /* Main pink used for buttons, links, etc. */
-    --primary-hover: #da1a8a;    /* Secondary pink used when hovering */
-    --bg-color: #058a86;         /* Main page teal background */
+    --primary-color: #c11a7b;    /* Main pink used for buttons, links, etc. */
+    --primary-hover: #d11a85;    /* Secondary pink used when hovering */
+    --bg-color: #05918d;         /* Main page teal background */
     --card-bg: #ffffff;          /* White background used for cards/sections */
     --text-main: #2c3e50;        /* Main dark text color */
     --text-muted: #7f8c8d;       /* Lighter gray text for secondary information */
