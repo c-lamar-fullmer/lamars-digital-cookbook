@@ -62,14 +62,18 @@
             <!-- Search section containing the recipe search bar. -->
             <section id="search-section">
 
-                <!-- Text input used to search recipes.
-                     app.js reads the value entered here and sends
-                     it to the backend search endpoint. -->
-                <input 
-                    type="text" 
-                    id="search-bar" 
-                    placeholder="search..."
-                >
+                <div id="search-input-wrapper">
+                    <!-- Text input used to search recipes.
+                         app.js reads the value entered here and sends
+                         it to the backend search endpoint. -->
+                    <input
+                        type="text"
+                        id="search-bar"
+                        placeholder="search..."
+                        aria-label="Search recipes"
+                    >
+                    <button id="clear-search-btn" type="button" aria-label="Clear search" title="Clear search" class="hidden">&times;</button>
+                </div>
 
             </section>
 
@@ -134,12 +138,19 @@
                 <!-- app.js inserts the selected recipe's title here. -->
                 <h2 id="detail-title"></h2>
 
+                <div id="detail-actions">
+                    <button id="detail-edit-btn" class="detail-action-btn hidden">Edit Recipe</button>
+                    <button id="preview-back-btn" class="detail-action-btn hidden">Back to editing</button>
+                    <button id="preview-save-btn" class="detail-action-btn hidden">Save Recipe</button>
+                </div>
+
                 <!-- Button used to close the recipe detail view.
                      &times; displays the × symbol. -->
                 <button id="back-btn" aria-label="Close recipe">&times;</button>
 
             </div>
 
+            <p id="preview-notice" class="hidden">Preview — these changes haven't been saved yet.</p>
 
             <!-- Contains all of the information about the selected recipe. -->
             <div id="detail-body">
@@ -421,6 +432,9 @@
 
             <!-- Contains the Save and Cancel buttons. -->
             <div id="admin-form-buttons">
+
+                <!-- Previews the current form values without saving them. -->
+                <button id="form-preview-btn">Preview</button>
 
                 <!-- Saves the new recipe or changes to an existing recipe. -->
                 <button id="form-save-btn">Save</button>
