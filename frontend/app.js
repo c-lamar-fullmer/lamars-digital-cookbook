@@ -99,7 +99,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const recipeDetail = document.getElementById("recipe-detail");
     const backBtn = document.getElementById("back-btn");
     const detailTitle = document.getElementById("detail-title");
+    const detailFooterActions = document.getElementById("detail-footer-actions");
     const detailEditBtn = document.getElementById("detail-edit-btn");
+    const conversionOpenBtn = document.getElementById("conversion-open-btn");
+    const conversionModal = document.getElementById("conversion-modal");
+    const conversionCloseBtn = document.getElementById("conversion-close-btn");
     const previewBackBtn = document.getElementById("preview-back-btn");
     const previewSaveBtn = document.getElementById("preview-save-btn");
     const previewNotice = document.getElementById("preview-notice");
@@ -262,8 +266,64 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    conversionOpenBtn.addEventListener("click", openConversionCalculator);
+    conversionCloseBtn.addEventListener("click", closeConversionCalculator);
+    conversionModal.addEventListener("click", (event) => {
+        if (event.target === conversionModal) {
+            closeConversionCalculator();
+        }
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !conversionModal.classList.contains("hidden")) {
+            closeConversionCalculator();
+        }
+    });
+
+    document.getElementById("temperature-f").addEventListener("input", (event) => {
+        const fahrenheit = event.target.valueAsNumber;
+        document.getElementById("temperature-c").value = Number.isFinite(fahrenheit)
+            ? formatConversionValue((fahrenheit - 32) * 5 / 9)
+            : "";
+    });
+
+    document.getElementById("temperature-c").addEventListener("input", (event) => {
+        const celsius = event.target.valueAsNumber;
+        document.getElementById("temperature-f").value = Number.isFinite(celsius)
+            ? formatConversionValue(celsius * 9 / 5 + 32)
+            : "";
+    });
+
+    document.querySelectorAll(".conversion-input[data-target]").forEach((input) => {
+        input.addEventListener("input", () => {
+            const value = input.valueAsNumber;
+            const targets = input.dataset.target.split(",");
+            const factors = input.dataset.factor.split(",").map(Number);
+
+            targets.forEach((targetId, index) => {
+                document.getElementById(targetId).value = Number.isFinite(value)
+                    ? formatConversionValue(value * factors[index])
+                    : "";
+            });
+        });
+    });
+
     previewBackBtn.addEventListener("click", showAdminForm);
     previewSaveBtn.addEventListener("click", saveRecipe);
+
+    function formatConversionValue(value) {
+        return String(Number(value.toFixed(4)));
+    }
+
+    function openConversionCalculator() {
+        conversionModal.classList.remove("hidden");
+        document.getElementById("temperature-f").focus();
+    }
+
+    function closeConversionCalculator() {
+        conversionModal.classList.add("hidden");
+        conversionOpenBtn.focus();
+    }
 
 
     // =============================================================
@@ -493,6 +553,7 @@ document.addEventListener("DOMContentLoaded", () => {
         activeRecipeId = recipe.id ?? null;
         isPreviewingRecipe = false;
         detailEditBtn.classList.toggle("hidden", activeRecipeId === null);
+        detailFooterActions.classList.toggle("hidden", activeRecipeId === null);
         previewBackBtn.classList.add("hidden");
         previewSaveBtn.classList.add("hidden");
         previewNotice.classList.add("hidden");
@@ -1063,6 +1124,7 @@ document.addEventListener("DOMContentLoaded", () => {
         activeRecipeId = editingRecipeId;
         isPreviewingRecipe = true;
         detailEditBtn.classList.add("hidden");
+        detailFooterActions.classList.add("hidden");
         previewBackBtn.classList.remove("hidden");
         previewSaveBtn.classList.remove("hidden");
         previewNotice.classList.remove("hidden");

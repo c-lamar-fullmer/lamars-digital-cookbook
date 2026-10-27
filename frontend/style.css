@@ -277,6 +277,7 @@ main {
 #filter-section {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
     margin-bottom: 30px;
 }
@@ -588,6 +589,137 @@ main {
 .detail-action-btn:hover {
     background-color: var(--primary-color);
     color: #ffffff;
+}
+
+#detail-footer-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+#conversion-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(15, 23, 42, 0.55);
+}
+
+#conversion-dialog {
+    width: min(100%, 680px);
+    max-height: 90vh;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+#conversion-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+#conversion-modal-title {
+    color: var(--primary-hover);
+    font-size: 1.2rem;
+}
+
+#conversion-close-btn {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border: 0;
+    border-radius: 50%;
+    background-color: #f1f5f9;
+    color: var(--text-main);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+#conversion-close-btn:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+#conversion-modal-content {
+    max-height: calc(90vh - 70px);
+    overflow-y: auto;
+    padding: 16px 20px 20px;
+}
+
+.conversion-group + .conversion-group {
+    margin-top: 20px;
+}
+
+.conversion-group h3 {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.conversion-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.conversion-row + .conversion-row {
+    margin-top: 8px;
+}
+
+.conversion-value label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.conversion-value input {
+    width: 100%;
+    min-width: 0;
+    padding: 9px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-main);
+    font: inherit;
+}
+
+.conversion-value input:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 1px;
+}
+
+.conversion-value input[readonly] {
+    background-color: #f8fafc;
+}
+
+.conversion-equals {
+    padding-top: 18px;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+
+.conversion-results {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
 }
 
 
@@ -1148,12 +1280,76 @@ main {
 */
 @media (max-width: 480px) {
 
+    #main-header {
+        padding: 22px 12px;
+    }
+
+    #main-header h1 {
+        font-size: clamp(1.1rem, 5vw, 1.5rem);
+        white-space: nowrap;
+    }
+
+    #motivational-quote {
+        font-size: 0.85rem;
+        line-height: 1.35;
+    }
+
     /*
        Reduces the main content's padding on small screens so there
        is more usable space for the recipe.
     */
     main {
         padding: 14px;
+    }
+
+    #filter-section {
+        gap: 8px;
+    }
+
+    .filter-chip {
+        padding: 7px 14px;
+        font-size: 0.82rem;
+    }
+
+    #detail-footer-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    #detail-footer-actions .detail-action-btn {
+        white-space: normal;
+    }
+
+    #conversion-modal {
+        padding: 10px;
+    }
+
+    #conversion-dialog {
+        max-height: 94vh;
+        border-radius: 10px;
+    }
+
+    #conversion-modal-content {
+        max-height: calc(94vh - 68px);
+        padding: 12px;
+    }
+
+    .conversion-row {
+        gap: 8px;
+        padding: 9px;
+    }
+
+    .conversion-value label {
+        font-size: 0.72rem;
+    }
+
+    .conversion-value input {
+        padding: 8px 6px;
+        font-size: 0.9rem;
+    }
+
+    .conversion-results {
+        gap: 5px;
     }
 
 
