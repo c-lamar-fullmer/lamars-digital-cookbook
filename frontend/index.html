@@ -275,81 +275,64 @@
                     </section>
 
                     <section class="conversion-group">
-                        <h3>Weight (Mass)</h3>
-                        <div class="conversion-row">
-                            <div class="conversion-value">
-                                <label for="weight-oz">Ounces (oz)</label>
-                                <input id="weight-oz" class="conversion-input" data-target="weight-oz-g" data-factor="28.35" type="number" step="any" inputmode="decimal" placeholder="oz">
-                            </div>
-                            <span class="conversion-equals" aria-hidden="true">=</span>
-                            <div class="conversion-value">
-                                <label for="weight-oz-g">Grams (g)</label>
-                                <input id="weight-oz-g" type="number" step="any" placeholder="g" readonly>
-                            </div>
-                        </div>
-                        <div class="conversion-row">
-                            <div class="conversion-value">
-                                <label for="weight-lb">Pounds (lb)</label>
-                                <input id="weight-lb" class="conversion-input" data-target="weight-lb-g,weight-lb-kg" data-factor="453.6,0.4536" type="number" step="any" inputmode="decimal" placeholder="lb">
-                            </div>
-                            <span class="conversion-equals" aria-hidden="true">=</span>
-                            <div class="conversion-results">
-                                <div class="conversion-value">
-                                    <label for="weight-lb-g">Grams (g)</label>
-                                    <input id="weight-lb-g" type="number" step="any" placeholder="g" readonly>
-                                </div>
-                                <div class="conversion-value">
-                                    <label for="weight-lb-kg">Kilograms (kg)</label>
-                                    <input id="weight-lb-kg" type="number" step="any" placeholder="kg" readonly>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section class="conversion-group">
                         <h3>Volume</h3>
                         <div class="conversion-row">
                             <div class="conversion-value">
                                 <label for="volume-tsp">Teaspoons (tsp)</label>
-                                <input id="volume-tsp" class="conversion-input" data-target="volume-tsp-ml" data-factor="5" type="number" step="any" inputmode="decimal" placeholder="tsp">
+                                <input id="volume-tsp" class="conversion-input" data-conversion-peer="volume-tsp-ml" data-conversion-factor="5" data-conversion-direction="forward" type="number" step="any" inputmode="decimal" placeholder="tsp">
                             </div>
                             <span class="conversion-equals" aria-hidden="true">=</span>
                             <div class="conversion-value">
                                 <label for="volume-tsp-ml">Milliliters (ml)</label>
-                                <input id="volume-tsp-ml" type="number" step="any" placeholder="ml" readonly>
+                                <input id="volume-tsp-ml" class="conversion-input" data-conversion-peer="volume-tsp" data-conversion-factor="5" data-conversion-direction="reverse" type="number" step="any" inputmode="decimal" placeholder="ml">
                             </div>
                         </div>
                         <div class="conversion-row">
                             <div class="conversion-value">
                                 <label for="volume-tbsp">Tablespoons (tbsp)</label>
-                                <input id="volume-tbsp" class="conversion-input" data-target="volume-tbsp-ml" data-factor="15" type="number" step="any" inputmode="decimal" placeholder="tbsp">
+                                <input id="volume-tbsp" class="conversion-input" data-conversion-peer="volume-tbsp-ml" data-conversion-factor="15" data-conversion-direction="forward" type="number" step="any" inputmode="decimal" placeholder="tbsp">
                             </div>
                             <span class="conversion-equals" aria-hidden="true">=</span>
                             <div class="conversion-value">
                                 <label for="volume-tbsp-ml">Milliliters (ml)</label>
-                                <input id="volume-tbsp-ml" type="number" step="any" placeholder="ml" readonly>
+                                <input id="volume-tbsp-ml" class="conversion-input" data-conversion-peer="volume-tbsp" data-conversion-factor="15" data-conversion-direction="reverse" type="number" step="any" inputmode="decimal" placeholder="ml">
                             </div>
                         </div>
                         <div class="conversion-row">
                             <div class="conversion-value">
                                 <label for="volume-floz">Fluid ounces (fl oz)</label>
-                                <input id="volume-floz" class="conversion-input" data-target="volume-floz-ml" data-factor="30" type="number" step="any" inputmode="decimal" placeholder="fl oz">
+                                <input id="volume-floz" class="conversion-input" data-conversion-peer="volume-floz-ml" data-conversion-factor="30" data-conversion-direction="forward" type="number" step="any" inputmode="decimal" placeholder="fl oz">
                             </div>
                             <span class="conversion-equals" aria-hidden="true">=</span>
                             <div class="conversion-value">
                                 <label for="volume-floz-ml">Milliliters (ml)</label>
-                                <input id="volume-floz-ml" type="number" step="any" placeholder="ml" readonly>
+                                <input id="volume-floz-ml" class="conversion-input" data-conversion-peer="volume-floz" data-conversion-factor="30" data-conversion-direction="reverse" type="number" step="any" inputmode="decimal" placeholder="ml">
                             </div>
                         </div>
                         <div class="conversion-row">
                             <div class="conversion-value">
                                 <label for="volume-cups">US cups</label>
-                                <input id="volume-cups" class="conversion-input" data-target="volume-cups-ml" data-factor="240" type="number" step="any" inputmode="decimal" placeholder="cups">
+                                <input id="volume-cups" class="conversion-input" data-conversion-peer="volume-cups-ml" data-conversion-factor="240" data-conversion-direction="forward" type="number" step="any" inputmode="decimal" placeholder="cups">
                             </div>
                             <span class="conversion-equals" aria-hidden="true">=</span>
                             <div class="conversion-value">
                                 <label for="volume-cups-ml">Milliliters (ml)</label>
-                                <input id="volume-cups-ml" type="number" step="any" placeholder="ml" readonly>
+                                <input id="volume-cups-ml" class="conversion-input" data-conversion-peer="volume-cups" data-conversion-factor="240" data-conversion-direction="reverse" type="number" step="any" inputmode="decimal" placeholder="ml">
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="conversion-group">
+                        <h3>Weight (Mass)</h3>
+                        <div class="conversion-row">
+                            <div class="conversion-value">
+                                <label for="weight-oz">Ounces (oz)</label>
+                                <input id="weight-oz" class="conversion-input" data-conversion-peer="weight-oz-g" data-conversion-factor="28.35" data-conversion-direction="forward" type="number" step="any" inputmode="decimal" placeholder="oz">
+                            </div>
+                            <span class="conversion-equals" aria-hidden="true">=</span>
+                            <div class="conversion-value">
+                                <label for="weight-oz-g">Grams (g)</label>
+                                <input id="weight-oz-g" class="conversion-input" data-conversion-peer="weight-oz" data-conversion-factor="28.35" data-conversion-direction="reverse" type="number" step="any" inputmode="decimal" placeholder="g">
                             </div>
                         </div>
                     </section>

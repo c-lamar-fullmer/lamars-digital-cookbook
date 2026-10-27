@@ -294,17 +294,16 @@ document.addEventListener("DOMContentLoaded", () => {
             : "";
     });
 
-    document.querySelectorAll(".conversion-input[data-target]").forEach((input) => {
+    document.querySelectorAll(".conversion-input[data-conversion-peer]").forEach((input) => {
         input.addEventListener("input", () => {
             const value = input.valueAsNumber;
-            const targets = input.dataset.target.split(",");
-            const factors = input.dataset.factor.split(",").map(Number);
+            const factor = Number(input.dataset.conversionFactor);
+            const converted = input.dataset.conversionDirection === "reverse"
+                ? value / factor
+                : value * factor;
 
-            targets.forEach((targetId, index) => {
-                document.getElementById(targetId).value = Number.isFinite(value)
-                    ? formatConversionValue(value * factors[index])
-                    : "";
-            });
+            document.getElementById(input.dataset.conversionPeer).value =
+                Number.isFinite(value) ? formatConversionValue(converted) : "";
         });
     });
 

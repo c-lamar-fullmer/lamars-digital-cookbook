@@ -706,22 +706,11 @@ main {
     outline-offset: 1px;
 }
 
-.conversion-value input[readonly] {
-    background-color: #f8fafc;
-}
-
 .conversion-equals {
     padding-top: 18px;
     color: var(--text-muted);
     font-weight: 700;
 }
-
-.conversion-results {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-}
-
 
 /*
    Each section of the recipe detail view uses this class.
@@ -1300,6 +1289,7 @@ main {
     */
     main {
         padding: 14px;
+        padding-bottom: 110px;
     }
 
     #filter-section {
@@ -1321,26 +1311,36 @@ main {
     }
 
     #conversion-modal {
-        padding: 10px;
+        inset: 0 0 88px;
+        padding: 8px;
     }
 
     #conversion-dialog {
-        max-height: 94vh;
+        max-height: calc(100vh - 104px);
+        max-height: calc(100dvh - 104px);
         border-radius: 10px;
     }
 
     #conversion-modal-content {
-        max-height: calc(94vh - 68px);
+        max-height: calc(100vh - 170px);
+        max-height: calc(100dvh - 170px);
         padding: 12px;
     }
 
     .conversion-row {
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
         gap: 8px;
         padding: 9px;
     }
 
+    .conversion-value {
+        min-width: 0;
+    }
+
     .conversion-value label {
         font-size: 0.72rem;
+        line-height: 1.2;
+        overflow-wrap: anywhere;
     }
 
     .conversion-value input {
@@ -1348,8 +1348,13 @@ main {
         font-size: 0.9rem;
     }
 
-    .conversion-results {
-        gap: 5px;
+    #detail-title,
+    #detail-notes,
+    #detail-ingredients li,
+    #detail-steps li,
+    #detail-tags,
+    #detail-url {
+        overflow-wrap: anywhere;
     }
 
 
